@@ -4,37 +4,38 @@ import { Button } from "@/components/ui/button";
 export default function Index() {
   return (
     <div>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,hsl(var(--primary)/.15),transparent_70%)]" />
-        <div className="container relative py-16 sm:py-20 lg:py-24">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-white/70 px-3 py-1 text-xs font-medium shadow-sm backdrop-blur dark:bg-background/60">
-              <span className="h-2 w-2 rounded-full bg-primary" />
-              Panchakarma Patient Management & Scheduling
-            </div>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-              AyurSutra – Panchakarma patient management and automated therapy scheduling software
-            </h1>
-            <div className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              <p>
-                AyurSutra offers a seamless platform to manage Panchakarma therapies, ensuring efficiency for practitioners and convenience for patients. The solution combines:
-              </p>
-              <ul className="mt-3 list-disc pl-6 space-y-1">
-                <li>Patient &amp; Practitioner Dashboards: Easy-to-use, organized access to therapy and progress details.</li>
-                <li>Automated Scheduling: Prevents double booking, reduces wait times, and optimizes resources.</li>
-                <li>Digital Records: Centralized logs and progress reports for seamless documentation.</li>
-                <li>Smart Reminders: Notifications for sessions, precautions, and post-care.</li>
-                <li>Feedback System: Post-session inputs to track issues and improve care.</li>
-              </ul>
-              <p className="mt-4">
-                <span className="font-semibold">for further queries contact us</span>: +91-98765 43210 • support@ayursutra.io
-              </p>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
+      {/* Hero (reference-like) */}
+      <section className="bg-[#d0d0d0]">
+        <div className="container py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Introduction to Panchakarma</h1>
+            <p className="mt-4 text-lg text-foreground/80">
+              Panchakarma (five actions) is a cleansing and rejuvenating program for the body, mind, and consciousness.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* About AyurSutra portal (kept at beginning per requirements) */}
+      <section>
+        <div className="container py-10 sm:py-14">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="text-2xl font-bold tracking-tight">AyurSutra – Panchakarma patient management and automated therapy scheduling software</h2>
+            <p className="mt-3 text-[17px] leading-7 text-foreground/80">
+              AyurSutra offers a seamless platform to manage Panchakarma therapies, ensuring efficiency for practitioners and convenience for patients. The solution combines:
+            </p>
+            <ul className="mt-4 list-disc space-y-1 pl-6">
+              <li>Patient &amp; Practitioner Dashboards: Easy-to-use, organized access to therapy and progress details.</li>
+              <li>Automated Scheduling: Prevents double booking, reduces wait times, and optimizes resources.</li>
+              <li>Digital Records: Centralized logs and progress reports for seamless documentation.</li>
+              <li>Smart Reminders: Notifications for sessions, precautions, and post-care.</li>
+              <li>Feedback System: Post-session inputs to track issues and improve care.</li>
+            </ul>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
               <Button asChild size="lg"><Link to="/register">Register Now</Link></Button>
               <Button asChild variant="secondary" size="lg"><a href="#what-is-panchakarma">Explore Knowledge</a></Button>
             </div>
+            <p className="mt-4 text-sm"><span className="font-semibold">for further queries contact us</span>: +91-98765 43210 • support@ayursutra.io</p>
           </div>
         </div>
       </section>
@@ -43,7 +44,7 @@ export default function Index() {
       <section className="border-t bg-white/60 dark:bg-background/60">
         <div className="container py-10 lg:py-14 grid gap-10 lg:grid-cols-[1fr_300px]">
           {/* Main content */}
-          <article className="prose prose-slate max-w-none dark:prose-invert">
+          <article className="prose prose-slate prose-a:text-[#c36] max-w-none dark:prose-invert">
             <h2 id="what-is-panchakarma">1. What is Panchakarma?</h2>
             <p><strong>Panchakarma</strong> (Sanskrit: "five actions") is the cornerstone of Ayurvedic medicine, representing a comprehensive detoxification and rejuvenation therapy system. This ancient healing practice goes to the root cause of health problems and re-establishes the essential balance of the three doshas (Vata, Pitta, and Kapha) in the body.</p>
             <p>Unlike symptomatic treatments, Panchakarma works at both gross and cellular levels to:</p>
@@ -86,16 +87,7 @@ export default function Index() {
             </ul>
 
             <h2 id="five-procedures">4. The Five Main Procedures</h2>
-            <h3>1) Vamana (Therapeutic Vomiting)</h3>
-            <p><strong>Purpose:</strong> Eliminates excess Kapha dosha from upper respiratory and digestive systems. <strong>Best for:</strong> Asthma, respiratory disorders, skin diseases, anorexia. <strong>Herbs used:</strong> Madanaphala, Nimba, Kutaja, and other specially prepared emetic preparations.</p>
-            <h3>2) Virechana (Therapeutic Purgation)</h3>
-            <p><strong>Purpose:</strong> Eliminates excess Pitta dosha through controlled bowel movements. <strong>Best for:</strong> Liver disorders, skin problems, chronic jaundice, gastrointestinal issues. <strong>Process:</strong> Uses specially prepared herbal purgatives for gentle yet effective cleansing.</p>
-            <h3>3) Basti (Medicated Enemas)</h3>
-            <p><strong>Purpose:</strong> Eliminates excess Vata dosha, considered the most important therapy. <strong>Types:</strong> Oil-based (Anuvasana) – nourishing; Decoction-based (Niruha) – cleansing. <strong>Best for:</strong> Neuromuscular disorders, arthritis, paralysis, urogenital problems.</p>
-            <h3>4) Nasya (Nasal Administration)</h3>
-            <p><strong>Purpose:</strong> Cleanses head, neck, and sinus regions. <strong>Methods:</strong> Oil instillation, powder insufflation, medicated smoke inhalation. <strong>Best for:</strong> Headaches, migraines, sinusitis, hair problems, mental clarity.</p>
-            <h3>5) Raktamokshana (Bloodletting)</h3>
-            <p><strong>Purpose:</strong> Purifies blood and eliminates blood-borne toxins. <strong>Methods:</strong> Leech therapy, cupping, or controlled bloodletting. <strong>Best for:</strong> Skin disorders, gout, blood-related diseases, certain inflammatory conditions.</p>
+            <ProceduresTabs />
 
             <h2 id="treatment-phases">5. Three Phases of Treatment</h2>
             <h3>Phase 1: Purva Karma (Preparatory Procedures)</h3>
