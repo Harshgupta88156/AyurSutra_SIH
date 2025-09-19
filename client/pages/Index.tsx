@@ -320,3 +320,76 @@ function TOCItem({ href, label }: { href: string; label: string }) {
     </a>
   );
 }
+
+function ProceduresTabs() {
+  return (
+    <div className="not-prose">
+      <Tabs defaultValue="vamana">
+        <TabsList className="flex flex-wrap gap-2 bg-secondary p-2">
+          <TabsTrigger value="vamana">Vamana</TabsTrigger>
+          <TabsTrigger value="virechana">Virechana</TabsTrigger>
+          <TabsTrigger value="basti">Basti</TabsTrigger>
+          <TabsTrigger value="nasya">Nasya</TabsTrigger>
+          <TabsTrigger value="raktamokshana">Raktamokshana</TabsTrigger>
+        </TabsList>
+        <div className="mt-6 grid gap-8">
+          <TabsContent value="vamana">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">Vamana (Therapeutic Vomiting)</h3>
+                <p><strong>Purpose:</strong> Eliminates excess Kapha dosha from upper respiratory and digestive systems.</p>
+                <p><strong>Best for:</strong> Asthma, respiratory disorders, skin diseases, anorexia.</p>
+                <p><strong>Herbs used:</strong> Madanaphala, Nimba, Kutaja, and other specially prepared emetic preparations.</p>
+              </div>
+              <div className="rounded-lg border bg-white p-4 shadow-sm dark:bg-background">Gentle emesis therapy under supervision helps remove Kapha toxins and restore balance.</div>
+            </div>
+          </TabsContent>
+          <TabsContent value="virechana">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">Virechana (Therapeutic Purgation)</h3>
+                <p><strong>Purpose:</strong> Eliminates excess Pitta dosha through controlled bowel movements.</p>
+                <p><strong>Best for:</strong> Liver disorders, skin problems, chronic jaundice, gastrointestinal issues.</p>
+                <p><strong>Process:</strong> Uses specially prepared herbal purgatives for gentle yet effective cleansing.</p>
+              </div>
+              <div className="rounded-lg border bg-white p-4 shadow-sm dark:bg-background">Pitta reduction through medicated purgation supports skin, liver, and gut health.</div>
+            </div>
+          </TabsContent>
+          <TabsContent value="basti">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">Basti (Medicated Enemas)</h3>
+                <p><strong>Purpose:</strong> Eliminates excess Vata dosha, considered the most important therapy.</p>
+                <p><strong>Types:</strong> Oil-based (Anuvasana) – nourishing; Decoction-based (Niruha) – cleansing.</p>
+                <p><strong>Best for:</strong> Neuromuscular disorders, arthritis, paralysis, urogenital problems.</p>
+              </div>
+              <div className="rounded-lg border bg-white p-4 shadow-sm dark:bg-background">Targeted Vata-pacifying enema therapies nourish and cleanse.</div>
+            </div>
+          </TabsContent>
+          <TabsContent value="nasya">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">Nasya (Nasal Administration)</h3>
+                <p><strong>Purpose:</strong> Cleanses head, neck, and sinus regions.</p>
+                <p><strong>Methods:</strong> Oil instillation, powder insufflation, medicated smoke inhalation.</p>
+                <p><strong>Best for:</strong> Headaches, migraines, sinusitis, hair problems, mental clarity.</p>
+              </div>
+              <div className="rounded-lg border bg-white p-4 shadow-sm dark:bg-background">Nasal routes directly address head and neck channels for clarity.</div>
+            </div>
+          </TabsContent>
+          <TabsContent value="raktamokshana">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-3">
+                <h3 className="text-xl font-semibold">Raktamokshana (Bloodletting)</h3>
+                <p><strong>Purpose:</strong> Purifies blood and eliminates blood-borne toxins.</p>
+                <p><strong>Methods:</strong> Leech therapy, cupping, or controlled bloodletting.</p>
+                <p><strong>Best for:</strong> Skin disorders, gout, blood-related diseases, certain inflammatory conditions.</p>
+              </div>
+              <div className="rounded-lg border bg-white p-4 shadow-sm dark:bg-background">Specialized techniques purify the blood to alleviate inflammatory conditions.</div>
+            </div>
+          </TabsContent>
+        </div>
+      </Tabs>
+    </div>
+  );
+}
