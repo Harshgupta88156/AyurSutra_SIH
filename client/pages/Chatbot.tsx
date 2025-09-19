@@ -82,7 +82,7 @@ export default function Chatbot() {
 
       <Card className="border-muted/60">
         <div className="grid grid-rows-[1fr_auto] h-[65vh]">
-          <ScrollArea className="p-4" viewportRef={viewportRef as any}>
+          <ScrollArea className="p-4">
             <div className="space-y-4">
               {messages.map((m) => (
                 <div key={m.id} className={cn("flex gap-3", m.role === "user" ? "justify-end" : "justify-start")}> 
