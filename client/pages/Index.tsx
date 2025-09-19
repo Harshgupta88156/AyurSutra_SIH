@@ -5,12 +5,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function Index() {
   return (
     <div>
-      {/* Hero (reference-like) */}
-      <section className="bg-[#d0d0d0]">
-        <div className="container py-16 sm:py-20 lg:py-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Introduction to Panchakarma</h1>
-            <p className="mt-4 text-lg text-foreground/80">
+      {/* Hero with background image */}
+      <section className="relative">
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2dmhHrZy8z-RwpQQjO5DkwsX-Z_-LtKAoLg&s')" }}
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative container py-16 sm:py-20 lg:py-24">
+          <div className="mx-auto max-w-3xl text-center text-white">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl heading">Introduction to Panchakarma</h1>
+            <p className="mt-4 text-lg opacity-90">
               Panchakarma (five actions) is a cleansing and rejuvenating program for the body, mind, and consciousness.
             </p>
           </div>
