@@ -93,11 +93,24 @@
   }
 
   body {
-    font-family: 'Alan Sans', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family:
+      "Alan Sans",
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Helvetica,
+      Arial,
+      "Apple Color Emoji",
+      "Segoe UI Emoji";
     @apply bg-background text-foreground antialiased;
   }
 
-  h1, h2, h3, .heading {
-    font-family: 'Playfair Display', serif;
+  h1,
+  h2,
+  h3,
+  .heading {
+    font-family: "Playfair Display", serif;
   }
 }
