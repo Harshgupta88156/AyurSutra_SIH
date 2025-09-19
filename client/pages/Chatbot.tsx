@@ -24,12 +24,11 @@ export default function Chatbot() {
   ]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const bottomRef = useRef<HTMLDivElement | null>(null);
   const { toast } = useToast();
 
   useEffect(() => {
-    if (!viewportRef.current) return;
-    viewportRef.current.scrollTop = viewportRef.current.scrollHeight;
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, loading]);
 
   async function sendMessage() {
