@@ -1,5 +1,5 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,9 +7,8 @@
 
 @layer base {
   :root {
-    /* Reference-like palette */
     --background: 0 0% 100%;
-    --foreground: 0 0% 11%; /* #1D1D1D */
+    --foreground: 0 0% 11%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 11%;
@@ -17,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 11%;
 
-    --primary: 191 100% 20%; /* #005265 */
+    --primary: 191 100% 20%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -26,7 +25,7 @@
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 35%;
 
-    --accent: 39 100% 50%; /* #FFA700 */
+    --accent: 39 100% 50%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84% 60%;
@@ -94,7 +93,11 @@
   }
 
   body {
-    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     @apply bg-background text-foreground antialiased;
+  }
+
+  h1, h2, h3, .heading {
+    font-family: 'Playfair Display', serif;
   }
 }
