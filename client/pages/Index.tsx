@@ -9,7 +9,7 @@ export default function Index() {
       <section className="relative">
         <div
           className="absolute inset-0 bg-center bg-cover"
-          style={{ backgroundImage: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2dmhHrZy8z-RwpQQjO5DkwsX-Z_-LtKAoLg&s')" }}
+          style={{ backgroundImage: "url('https://ayurveda-kerala.org/wp-content/uploads/2023/06/1123.jpg')" }}
         />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative container py-16 sm:py-20 lg:py-24">
