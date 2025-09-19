@@ -230,7 +230,7 @@ export default function Index() {
             <h3>Published Clinical Studies</h3>
             <ul>
               <li>NIH/PMC Research Findings: Significant improvements in self-efficacy for health management; positive changes in health behaviors sustained at 3 months; reduced depression and increased perceived social support; effective as adjunct therapy with conventional treatments.</li>
-              <li>Clinical Effectiveness: Cancer care – effective in managing chemotherapy and radiotherapy side effects; chronic diseases – better outcomes when combined with conventional medicine; mental health – significant improvements in stress and anxiety levels; immune function – enhanced immune response and disease resistance.</li>
+              <li>Clinical Effectiveness: Cancer care – effective in managing chemotherapy and radiotherapy side effects; chronic diseases – better outcomes when combined with conventional medicine; mental health �� significant improvements in stress and anxiety levels; immune function – enhanced immune response and disease resistance.</li>
             </ul>
             <h3>Research Methodology</h3>
             <p>Studies utilize both quantitative measures (physiological parameters, biochemical markers) and qualitative assessments (quality of life scores, subjective well-being measures) with long-term follow-up tracking benefits over 3–12 months post-treatment.</p>
@@ -268,6 +268,12 @@ export default function Index() {
               <li>Modern research publications on Panchakarma efficacy</li>
               <li>Guidelines from recognized Ayurvedic institutions</li>
             </ul>
+            <h3>Additional Resources</h3>
+            <ul>
+              <li><a href="https://ayurveda.com/introduction-to-panchakarma/" target="_blank" rel="noreferrer">Introduction to Panchakarma – The Ayurvedic Institute</a></li>
+              <li><a href="https://youtu.be/K6tONjmIaEM?si=Cvz1byvDi25lMTAx" target="_blank" rel="noreferrer">Video: Panchakarma Overview</a></li>
+              <li><a href="https://share.google/v2gNWFKebs2LdBdFG" target="_blank" rel="noreferrer">Reference: Shared resource</a></li>
+            </ul>
 
             <p className="mt-10 text-sm text-muted-foreground">
               This knowledge portal is for educational purposes. Always consult qualified Ayurvedic physicians before undertaking Panchakarma therapy. Individual results may vary based on constitution, health condition, and adherence to treatment protocols.
@@ -298,6 +304,14 @@ export default function Index() {
               <div className="mt-5">
                 <Button asChild className="w-full"><Link to="/register">Register</Link></Button>
               </div>
+            </div>
+            <div className="mt-5 rounded-xl border bg-white/70 p-5 shadow-sm backdrop-blur dark:bg-background/60">
+              <h4 className="text-sm font-semibold tracking-wide">Recommended Resources</h4>
+              <ul className="mt-3 space-y-2 text-sm">
+                <li><a className="hover:text-primary underline underline-offset-4" href="https://ayurveda.com/introduction-to-panchakarma/" target="_blank" rel="noreferrer">Introduction to Panchakarma – The Ayurvedic Institute</a></li>
+                <li><a className="hover:text-primary underline underline-offset-4" href="https://youtu.be/K6tONjmIaEM?si=Cvz1byvDi25lMTAx" target="_blank" rel="noreferrer">Video: Panchakarma Overview</a></li>
+                <li><a className="hover:text-primary underline underline-offset-4" href="https://share.google/v2gNWFKebs2LdBdFG" target="_blank" rel="noreferrer">Reference: Shared resource</a></li>
+              </ul>
             </div>
           </aside>
         </div>
