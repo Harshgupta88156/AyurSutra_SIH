@@ -115,6 +115,7 @@ export default function Chatbot() {
                   <Loader2 className="h-4 w-4 animate-spin" /> Generating response...
                 </div>
               )}
+              <div ref={bottomRef} />
             </div>
           </ScrollArea>
 
