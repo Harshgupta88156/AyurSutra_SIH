@@ -1,96 +1,90 @@
 /** @import must precede all other statements */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
-  */
   :root {
-    /* AyurSutra light theme */
-    --background: 30 33% 99%; /* ivory */
-    --foreground: 24 20% 12%; /* deep brown */
+    /* Reference-like palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%; /* #1D1D1D */
 
-    --card: 30 33% 99%;
-    --card-foreground: 24 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 24 20% 12%;
+    --popover-foreground: 0 0% 11%;
 
-    --primary: 142 50% 32%; /* ayurvedic green */
+    --primary: 191 100% 20%; /* #005265 */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 36 45% 92%; /* warm sand */
-    --secondary-foreground: 24 30% 18%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 11%;
 
-    --muted: 24 20% 94%;
-    --muted-foreground: 24 15% 40%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 35%;
 
-    --accent: 36 85% 44%; /* saffron */
-    --accent-foreground: 0 0% 100%;
+    --accent: 39 100% 50%; /* #FFA700 */
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 0 70% 45%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 24 20% 88%;
-    --input: 24 20% 88%;
-    --ring: 142 50% 32%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 191 100% 20%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 30 33% 99%;
-    --sidebar-foreground: 24 20% 20%;
-    --sidebar-primary: 142 50% 32%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 11%;
+    --sidebar-primary: 191 100% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 36 45% 92%;
-    --sidebar-accent-foreground: 24 30% 18%;
-    --sidebar-border: 24 20% 88%;
-    --sidebar-ring: 142 50% 40%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 11%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 191 100% 20%;
   }
 
   .dark {
-    /* AyurSutra dark theme */
-    --background: 24 12% 9%;
-    --foreground: 30 33% 98%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 96%;
 
-    --card: 24 12% 9%;
-    --card-foreground: 30 33% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 24 12% 9%;
-    --popover-foreground: 30 33% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 142 50% 48%;
-    --primary-foreground: 24 12% 9%;
+    --primary: 191 100% 35%;
+    --primary-foreground: 0 0% 8%;
 
-    --secondary: 24 10% 16%;
-    --secondary-foreground: 30 33% 98%;
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 24 10% 16%;
-    --muted-foreground: 24 12% 70%;
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 36 85% 52%;
-    --accent-foreground: 24 12% 9%;
+    --accent: 39 100% 55%;
+    --accent-foreground: 0 0% 8%;
 
-    --destructive: 0 62% 40%;
-    --destructive-foreground: 30 33% 98%;
+    --destructive: 0 70% 40%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 24 10% 18%;
-    --input: 24 10% 18%;
-    --ring: 142 50% 48%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 191 100% 35%;
 
-    --sidebar-background: 24 12% 9%;
-    --sidebar-foreground: 30 33% 98%;
-    --sidebar-primary: 142 50% 48%;
-    --sidebar-primary-foreground: 24 12% 9%;
-    --sidebar-accent: 24 10% 16%;
-    --sidebar-accent-foreground: 30 33% 98%;
-    --sidebar-border: 24 10% 18%;
-    --sidebar-ring: 142 50% 48%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 191 100% 35%;
+    --sidebar-primary-foreground: 0 0% 8%;
+    --sidebar-accent: 0 0% 16%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 191 100% 35%;
   }
 }
 
@@ -100,6 +94,7 @@
   }
 
   body {
+    font-family: 'Outfit', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
     @apply bg-background text-foreground antialiased;
   }
 }
