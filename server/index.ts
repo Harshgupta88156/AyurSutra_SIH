@@ -20,6 +20,8 @@ export function createServer() {
 
   app.get("/api/demo", handleDemo);
   app.post("/api/chat", handleChat);
+  // Intake APIs
+  app.get("/api/intakes", require("./routes/intakes").listIntakes);
 
   return app;
 }

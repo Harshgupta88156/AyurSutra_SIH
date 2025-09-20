@@ -19,7 +19,7 @@ export default function Chatbot() {
       id: crypto.randomUUID(),
       role: "assistant",
       content:
-        "Hi! I’m your AyurSutra assistant. Ask me anything about Panchakarma, features, onboarding, or how AyurSutra helps with patient management and therapy scheduling.",
+        "Hi! I’m your AyurSutra assistant. I provide detailed, step-by-step answers about Panchakarma, features, onboarding, pricing, and how AyurSutra helps with patient management and therapy scheduling. Ask follow-ups anytime.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -93,7 +93,8 @@ export default function Chatbot() {
           AyurSutra Assistant
         </h1>
         <p className="text-muted-foreground mt-1">
-          Get concise answers about Panchakarma and AyurSutra. Stay on topic.
+          Get detailed, structured answers about Ayurveda, Panchakarma, and
+          AyurSutra. Ask follow-ups for depth.
         </p>
       </div>
 
@@ -148,7 +149,7 @@ export default function Chatbot() {
           <div className="border-t p-3 sm:p-4">
             <div className="flex gap-2">
               <Input
-                placeholder="Ask about AyurSutra or Panchakarma..."
+                placeholder="Ask about Ayurveda, Panchakarma, or AyurSutra..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
