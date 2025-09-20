@@ -30,6 +30,49 @@ Be accurate, concise, and respond in clear bullet points where appropriate. If t
   return `${system}\n\n${historyText ? historyText + "\n\n" : ""}User: ${userMessage}`;
 }
 
+function offlineAnswer(message: string) {
+  const m = message.toLowerCase();
+  const bullets = (lines: string[]) => lines.map((l) => `• ${l}`).join("\n");
+
+  if (/(register|signup|sign up|onboard)/.test(m)) {
+    return bullets([
+      "Go to the Registration page from the header.",
+      "Fill patient details and create an account.",
+      "You can manage profiles and schedule therapies after registration.",
+    ]);
+  }
+  if (/(price|cost|plan|trial)/.test(m)) {
+    return bullets([
+      "AyurSutra offers flexible plans for clinics of all sizes.",
+      "Contact support from the footer to get current pricing and trials.",
+    ]);
+  }
+  if (/(panchakarma|therapy|procedure|detox)/.test(m)) {
+    return bullets([
+      "Track Panchakarma therapies with structured phases.",
+      "Automate scheduling, reminders, and resource planning.",
+      "Maintain patient notes, vitals, and follow‑ups.",
+    ]);
+  }
+  if (/(feature|module|what can|capab)/.test(m)) {
+    return bullets([
+      "Patient registration and profile management.",
+      "Automated therapy scheduling and reminders.",
+      "Progress tracking, notes, and analytics dashboards.",
+    ]);
+  }
+  if (/(support|help|contact)/.test(m)) {
+    return bullets([
+      "Use the contact options in the footer to reach support.",
+      "We typically respond within one business day.",
+    ]);
+  }
+  return bullets([
+    "I can answer questions about AyurSutra and Panchakarma workflows.",
+    "Try asking about registration, features, or scheduling.",
+  ]);
+}
+
 export const handleChat: RequestHandler = async (req, res) => {
   try {
     const parsed = ChatRequestSchema.safeParse(req.body);
@@ -41,10 +84,9 @@ export const handleChat: RequestHandler = async (req, res) => {
 
     const { message, history } = parsed.data;
     const apiKey = process.env.GOOGLE_API_KEY;
+
     if (!apiKey) {
-      return res
-        .status(500)
-        .json({ error: "Server not configured with GOOGLE_API_KEY" });
+      return res.status(200).json({ reply: offlineAnswer(message) });
     }
 
     const prompt = buildPrompt(message, history);
