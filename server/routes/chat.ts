@@ -13,7 +13,9 @@ const ChatRequestSchema = z.object({
     .optional(),
 });
 
-const GEMINI_MODEL = "gemini-1.5-flash";
+const GEMINI_MODEL = "gemini-1.5-pro";
+
+const KNOWLEDGE_SNIPPET = `Panchakarma Overview\n• Five main procedures: Vamana (therapeutic emesis), Virechana (purgation), Basti (medicated enema), Nasya (nasal therapy), Raktamokshana (bloodletting).\n• Phases: Purva Karma (prep: Deepana/Pachana, Snehana, Swedana), Pradhana Karma (main procedures), Paschat Karma (diet, lifestyle, Rasayana).\n• Benefits: detoxification, dosha balance, improved digestion and sleep, reduced stress, better skin/joint health.\n• Contraindications (examples): pregnancy, acute infections/fever, severe cardiac disease, active cancer—requires qualified supervision.\n• Common conditions addressed: arthritis, asthma/sinusitis, IBS/constipation, stress/insomnia, skin disorders, metabolic issues.\n`;
 
 function buildPrompt(
   userMessage: string,
@@ -30,7 +32,7 @@ Tone: Professional, precise, and helpful.`;
     .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.content}`)
     .join("\n");
 
-  return `${system}\n\n${historyText ? historyText + "\n\n" : ""}User: ${userMessage}`;
+  return `${system}\n\nKnowledge reference (use when relevant):\n${KNOWLEDGE_SNIPPET}\n\n${historyText ? historyText + "\n\n" : ""}User: ${userMessage}`;
 }
 
 function ensureGreeting(text: string) {
@@ -163,7 +165,7 @@ export const handleChat: RequestHandler = async (req, res) => {
           ],
           generationConfig: {
             temperature: 0.2,
-            topK: 32,
+            topK: 64,
             topP: 0.95,
             maxOutputTokens: 2048,
           },
