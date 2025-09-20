@@ -32,7 +32,9 @@ Be accurate and concise, prefer short paragraphs or bullet points. If the user a
 }
 
 function ensureGreeting(text: string) {
-  const startsWithGreeting = /^(hi|hello|hey|namaste|greetings)/i.test(text.trim());
+  const startsWithGreeting = /^(hi|hello|hey|namaste|greetings)/i.test(
+    text.trim(),
+  );
   const greeting = "Hi there! 👋 ";
   return startsWithGreeting ? text : greeting + text;
 }
@@ -93,7 +95,9 @@ export const handleChat: RequestHandler = async (req, res) => {
     const apiKey = process.env.GOOGLE_API_KEY;
 
     if (!apiKey) {
-      return res.status(200).json({ reply: ensureGreeting(offlineAnswer(message)) });
+      return res
+        .status(200)
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
     const prompt = buildPrompt(message, history);
@@ -122,7 +126,9 @@ export const handleChat: RequestHandler = async (req, res) => {
 
     if (!response.ok) {
       const _text = await response.text().catch(() => "");
-      return res.status(200).json({ reply: ensureGreeting(offlineAnswer(message)) });
+      return res
+        .status(200)
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
     const data = (await response.json()) as any;
@@ -135,11 +141,15 @@ export const handleChat: RequestHandler = async (req, res) => {
       "";
 
     if (!text) {
-      return res.status(200).json({ reply: ensureGreeting(offlineAnswer(message)) });
+      return res
+        .status(200)
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
     res.status(200).json({ reply: ensureGreeting(text) });
   } catch (err) {
-    return res.status(200).json({ reply: ensureGreeting(offlineAnswer(req.body?.message ?? "")) });
+    return res
+      .status(200)
+      .json({ reply: ensureGreeting(offlineAnswer(req.body?.message ?? "")) });
   }
 };
