@@ -93,7 +93,7 @@ export default function Chatbot() {
           AyurSutra Assistant
         </h1>
         <p className="text-muted-foreground mt-1">
-          Get detailed, structured answers about Panchakarma and AyurSutra. Ask follow-ups for depth.
+          Get detailed, structured answers about Ayurveda, Panchakarma, and AyurSutra. Ask follow-ups for depth.
         </p>
       </div>
 
@@ -148,7 +148,7 @@ export default function Chatbot() {
           <div className="border-t p-3 sm:p-4">
             <div className="flex gap-2">
               <Input
-                placeholder="Ask about AyurSutra or Panchakarma..."
+                placeholder="Ask about Ayurveda, Panchakarma, or AyurSutra..."
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={onKeyDown}
