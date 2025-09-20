@@ -20,14 +20,66 @@ function buildPrompt(
   history?: { role: string; content: string }[],
 ) {
   const system = `You are an expert assistant for AyurSutra – Panchakarma patient management and automated therapy scheduling software.
+Your style: warm, friendly, encouraging. Always begin with a short greeting (e.g., "Hi there! 👋"), use positive language, and avoid negativity.
 Answer questions ONLY about AyurSutra, Ayurveda, Panchakarma modules, features, benefits, onboarding, registration, and related usage.
-Be accurate, concise, and respond in clear bullet points where appropriate. If the user asks something outside this scope, politely state that you can only answer questions related to AyurSutra.`;
+Be accurate and concise, prefer short paragraphs or bullet points. If the user asks something outside this scope, gently redirect and suggest a relevant AyurSutra topic.`;
 
   const historyText = (history ?? [])
     .map((m) => `${m.role === "user" ? "User" : "Assistant"}: ${m.content}`)
     .join("\n");
 
   return `${system}\n\n${historyText ? historyText + "\n\n" : ""}User: ${userMessage}`;
+}
+
+function ensureGreeting(text: string) {
+  const startsWithGreeting = /^(hi|hello|hey|namaste|greetings)/i.test(
+    text.trim(),
+  );
+  const greeting = "Hi there! 👋 ";
+  return startsWithGreeting ? text : greeting + text;
+}
+
+function offlineAnswer(message: string) {
+  const m = message.toLowerCase();
+  const bullets = (lines: string[]) => lines.map((l) => `• ${l}`).join("\n");
+
+  if (/(register|signup|sign up|onboard)/.test(m)) {
+    return bullets([
+      "You can register from the header's Registration page.",
+      "Add patient details to create profiles in seconds.",
+      "Start scheduling therapies right after signup.",
+    ]);
+  }
+  if (/(price|cost|plan|trial)/.test(m)) {
+    return bullets([
+      "Flexible plans tailored for clinics of any size.",
+      "Use the footer contact options for current pricing and trials.",
+    ]);
+  }
+  if (/(panchakarma|therapy|procedure|detox)/.test(m)) {
+    return bullets([
+      "Track therapies with clearly defined Panchakarma phases.",
+      "Automate schedules, reminders, and resources.",
+      "Capture notes, vitals, and follow‑ups effortlessly.",
+    ]);
+  }
+  if (/(feature|module|what can|capab)/.test(m)) {
+    return bullets([
+      "Patient registration and profile management.",
+      "Automated therapy scheduling and reminders.",
+      "Progress tracking, notes, and analytics dashboards.",
+    ]);
+  }
+  if (/(support|help|contact)/.test(m)) {
+    return bullets([
+      "Reach support via the footer contact options.",
+      "We usually reply within one business day.",
+    ]);
+  }
+  return bullets([
+    "I focus on AyurSutra and Panchakarma workflows.",
+    "Ask about registration, features, or scheduling to get the most helpful tips.",
+  ]);
 }
 
 export const handleChat: RequestHandler = async (req, res) => {
@@ -41,10 +93,11 @@ export const handleChat: RequestHandler = async (req, res) => {
 
     const { message, history } = parsed.data;
     const apiKey = process.env.GOOGLE_API_KEY;
+
     if (!apiKey) {
       return res
-        .status(500)
-        .json({ error: "Server not configured with GOOGLE_API_KEY" });
+        .status(200)
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
     const prompt = buildPrompt(message, history);
@@ -72,8 +125,10 @@ export const handleChat: RequestHandler = async (req, res) => {
     );
 
     if (!response.ok) {
-      const text = await response.text().catch(() => "");
-      return res.status(502).json({ error: "Upstream error", details: text });
+      const _text = await response.text().catch(() => "");
+      return res
+        .status(200)
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
     const data = (await response.json()) as any;
@@ -88,13 +143,13 @@ export const handleChat: RequestHandler = async (req, res) => {
     if (!text) {
       return res
         .status(200)
-        .json({
-          reply: "I couldn't generate a response right now. Please try again.",
-        });
+        .json({ reply: ensureGreeting(offlineAnswer(message)) });
     }
 
-    res.status(200).json({ reply: text });
+    res.status(200).json({ reply: ensureGreeting(text) });
   } catch (err) {
-    res.status(500).json({ error: "Unexpected server error" });
+    return res
+      .status(200)
+      .json({ reply: ensureGreeting(offlineAnswer(req.body?.message ?? "")) });
   }
 };
