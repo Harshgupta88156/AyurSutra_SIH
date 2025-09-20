@@ -46,13 +46,17 @@ export default function Header() {
       {location.pathname === "/" && (
         <div className="border-t bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10">
           <div className="container py-2 text-xs sm:text-sm">
-            <span className="font-semibold">for further queries contact us</span>: {" "}
+            <span className="font-semibold">
+              for further queries contact us
+            </span>
+            :{" "}
             <a
               href="tel:+919876543210"
               className="underline decoration-dotted underline-offset-4 hover:text-primary"
             >
               +91-98765 43210
-            </a> {" "}•{" "}
+            </a>{" "}
+            •{" "}
             <a
               href="mailto:support@ayursutra.io"
               className="underline decoration-dotted underline-offset-4 hover:text-primary"

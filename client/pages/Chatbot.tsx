@@ -35,7 +35,11 @@ export default function Chatbot() {
     const trimmed = input.trim();
     if (!trimmed || loading) return;
 
-    const userMessage: Message = { id: crypto.randomUUID(), role: "user", content: trimmed };
+    const userMessage: Message = {
+      id: crypto.randomUUID(),
+      role: "user",
+      content: trimmed,
+    };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
@@ -56,11 +60,20 @@ export default function Chatbot() {
       }
 
       const data = (await res.json()) as { reply?: string };
-      const reply = data.reply?.trim() || "I’m having trouble responding right now.";
-      const botMessage: Message = { id: crypto.randomUUID(), role: "assistant", content: reply };
+      const reply =
+        data.reply?.trim() || "I’m having trouble responding right now.";
+      const botMessage: Message = {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        content: reply,
+      };
       setMessages((prev) => [...prev, botMessage]);
     } catch (e) {
-      toast({ title: "Error", description: "Failed to get a response. Please try again.", variant: "destructive" });
+      toast({
+        title: "Error",
+        description: "Failed to get a response. Please try again.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -76,8 +89,12 @@ export default function Chatbot() {
   return (
     <section className="container py-8 sm:py-12">
       <div className="mb-6 sm:mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">AyurSutra Assistant</h1>
-        <p className="text-muted-foreground mt-1">Get concise answers about Panchakarma and AyurSutra. Stay on topic.</p>
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          AyurSutra Assistant
+        </h1>
+        <p className="text-muted-foreground mt-1">
+          Get concise answers about Panchakarma and AyurSutra. Stay on topic.
+        </p>
       </div>
 
       <Card className="border-muted/60">
@@ -85,7 +102,13 @@ export default function Chatbot() {
           <ScrollArea className="p-4">
             <div className="space-y-4">
               {messages.map((m) => (
-                <div key={m.id} className={cn("flex gap-3", m.role === "user" ? "justify-end" : "justify-start")}> 
+                <div
+                  key={m.id}
+                  className={cn(
+                    "flex gap-3",
+                    m.role === "user" ? "justify-end" : "justify-start",
+                  )}
+                >
                   {m.role === "assistant" && (
                     <div className="h-8 w-8 shrink-0 rounded-md bg-primary text-primary-foreground inline-flex items-center justify-center">
                       <Bot className="h-4 w-4" />
@@ -100,7 +123,9 @@ export default function Chatbot() {
                     )}
                   >
                     {m.content.split("\n").map((line, i) => (
-                      <p key={i} className={cn(i > 0 && "mt-1")}>{line}</p>
+                      <p key={i} className={cn(i > 0 && "mt-1")}>
+                        {line}
+                      </p>
                     ))}
                   </div>
                   {m.role === "user" && (
@@ -112,7 +137,8 @@ export default function Chatbot() {
               ))}
               {loading && (
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <Loader2 className="h-4 w-4 animate-spin" /> Generating response...
+                  <Loader2 className="h-4 w-4 animate-spin" /> Generating
+                  response...
                 </div>
               )}
               <div ref={bottomRef} />
@@ -128,8 +154,17 @@ export default function Chatbot() {
                 onKeyDown={onKeyDown}
                 disabled={loading}
               />
-              <Button onClick={sendMessage} disabled={loading || !input.trim()} className="inline-flex gap-2">
-                {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />} <span>Send</span>
+              <Button
+                onClick={sendMessage}
+                disabled={loading || !input.trim()}
+                className="inline-flex gap-2"
+              >
+                {loading ? (
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                ) : (
+                  <Send className="h-4 w-4" />
+                )}{" "}
+                <span>Send</span>
               </Button>
             </div>
           </div>

@@ -42,7 +42,8 @@ export default function ChatWidget() {
             </button>
             <p className="text-sm leading-snug">
               <span className="mr-1">👋</span>
-              Ask the AyurSutra AI about Panchakarma and the product. Click the orb to start.
+              Ask the AyurSutra AI about Panchakarma and the product. Click the
+              orb to start.
             </p>
           </div>
         </div>
