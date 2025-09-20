@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Leaf, CalendarClock, MessageCircle } from "lucide-react";
+import { Leaf, CalendarClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Header() {
@@ -35,12 +35,6 @@ export default function Header() {
           </NavLink>
         </nav>
         <div className="flex items-center gap-3">
-          <Button asChild variant="secondary" className="hidden sm:inline-flex">
-            <Link to="/chatbot" className="inline-flex items-center gap-2">
-              <MessageCircle className="h-4 w-4" />
-              Chatbot
-            </Link>
-          </Button>
           <Button asChild className="hidden sm:inline-flex">
             <Link to="/register" className="inline-flex items-center gap-2">
               <CalendarClock className="h-4 w-4" />
