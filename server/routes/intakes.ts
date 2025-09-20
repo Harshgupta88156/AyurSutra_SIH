@@ -29,7 +29,9 @@ export function addIntakeRaw(data: Omit<Intake, "id" | "createdAt">) {
 export const addIntakeFromJson: RequestHandler = (req, res) => {
   const parsed = IntakeSchema.safeParse(req.body);
   if (!parsed.success) {
-    return res.status(400).json({ error: "Invalid intake", details: parsed.error.flatten() });
+    return res
+      .status(400)
+      .json({ error: "Invalid intake", details: parsed.error.flatten() });
   }
   const saved = addIntakeRaw(parsed.data);
   res.json({ item: saved });

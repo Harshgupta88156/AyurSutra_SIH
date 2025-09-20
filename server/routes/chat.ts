@@ -46,7 +46,8 @@ function ensureGreeting(text: string) {
 function offlineAnswer(message: string) {
   const m = message.toLowerCase();
   const bullets = (lines: string[]) => lines.map((l) => `• ${l}`).join("\n");
-  const section = (title: string, lines: string[]) => `${title}:\n${bullets(lines)}`;
+  const section = (title: string, lines: string[]) =>
+    `${title}:\n${bullets(lines)}`;
 
   if (/(register|signup|sign up|onboard)/.test(m)) {
     return [
@@ -140,9 +141,7 @@ function offlineAnswer(message: string) {
         "Use the footer contact options to reach support.",
         "Share your clinic size and current workflow for faster guidance.",
       ]),
-      section("Typical Response Time", [
-        "Within one business day.",
-      ]),
+      section("Typical Response Time", ["Within one business day."]),
     ].join("\n\n");
   }
   return [

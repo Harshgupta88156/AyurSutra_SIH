@@ -93,7 +93,8 @@ export default function Chatbot() {
           AyurSutra Assistant
         </h1>
         <p className="text-muted-foreground mt-1">
-          Get detailed, structured answers about Ayurveda, Panchakarma, and AyurSutra. Ask follow-ups for depth.
+          Get detailed, structured answers about Ayurveda, Panchakarma, and
+          AyurSutra. Ask follow-ups for depth.
         </p>
       </div>
 
