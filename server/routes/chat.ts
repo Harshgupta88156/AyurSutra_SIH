@@ -79,6 +79,31 @@ function offlineAnswer(message: string) {
       ]),
     ].join("\n\n");
   }
+  if (/(ayurveda|dosha|vata|pitta|kapha|agni|ama)/.test(m)) {
+    return [
+      section("Overview", [
+        "Ayurveda is a holistic medical system focusing on balance of body, mind, and spirit.",
+        "Core aim: optimize Agni (digestive/metabolic fire), reduce Ama (toxins), and balance Doshas (Vata, Pitta, Kapha).",
+      ]),
+      section("Core Concepts", [
+        "Doshas: Vata (movement), Pitta (transformation), Kapha (structure).",
+        "Agni: governs digestion/metabolism; weak Agni leads to Ama (toxins).",
+        "Prakriti vs Vikriti: constitution at birth vs current imbalance.",
+      ]),
+      section("Daily Routine (Dinacharya)", [
+        "Wake early; tongue scraping; warm water; moderate exercise/yoga; pranayama/meditation.",
+        "Regular meals; early dinner; consistent sleep schedule.",
+      ]),
+      section("Diet Tips (General)", [
+        "Favor freshly cooked, seasonal foods; avoid heavy late dinners.",
+        "Adjust by season and constitution (e.g., cooling foods in summer for Pitta).",
+      ]),
+      section("Safety", [
+        "Consult qualified practitioners for diagnosis and personalized plans.",
+        "Coordinate with your doctor for ongoing medications and conditions.",
+      ]),
+    ].join("\n\n");
+  }
   if (/(panchakarma|therapy|procedure|detox)/.test(m)) {
     return [
       section("Overview", [
@@ -121,12 +146,15 @@ function offlineAnswer(message: string) {
     ].join("\n\n");
   }
   return [
-    section("On Topic", [
-      "I focus on AyurSutra and Panchakarma workflows.",
-      "Ask about registration, features, scheduling, or therapy plans for detailed guidance.",
+    section("Ayurveda Quick Guide", [
+      "Balance Doshas via diet, routine, and therapies; optimize Agni; reduce Ama.",
+      "Personalization is key—consider constitution, season, and region.",
     ]),
-    section("Tip", [
-      "Include your clinic size and main therapies to get tailored suggestions.",
+    section("Panchakarma Overview", [
+      "Purva (prep), Pradhana (main), Paschat (post-care); five procedures as indicated.",
+    ]),
+    section("Next Steps", [
+      "Ask about Virechana steps, Vata‑balancing diet, or how to schedule therapies in AyurSutra.",
     ]),
   ].join("\n\n");
 }
